@@ -25,5 +25,15 @@ function newTodo() {
   let input = document.getElementById('input');
   let text = input.value;
   input.value = "";
+  let ulElement = document.createElement("ul");
+  let check = document.createElement("INPUT");
+  check.setAttribute("type", "checkbox");
+  let div = document.createElement("div");
+  div.appendChild(ulElement);
+  div.appendChild(check);
+  div.className = "center todo-checkbox";
+
+  ulElement.innerText = text;
+  list.appendChild(div);
 
 }
