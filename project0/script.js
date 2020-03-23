@@ -13,8 +13,10 @@ classNames.TODO_TEXT = document.getElementById
 
 let input = document.createElement("input");
 input.type = "text";
-// input.className = "container"; // set the CSS class
-itemCountSpan.appendChild(input);
+// input.className = "css-class-name"; // set the CSS class
+let buttonOne = document.getElementsByClassName("button")
+console.log(buttonOne)
+buttonOne.before(input);
 
 function newTodo() {
   let num =  parseInt(itemCountSpan.innerText);
