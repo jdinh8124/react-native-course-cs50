@@ -28,23 +28,22 @@ function newTodo() {
   let ulElement = document.createElement("ul");
   let check = document.createElement("INPUT");
   check.setAttribute("type", "checkbox");
+  check.addEventListener('change', checkedAmount);
   let div = document.createElement("div");
   div.appendChild(ulElement);
   div.appendChild(check);
   div.className = "center todo-checkbox";
-
   ulElement.innerText = text;
   list.appendChild(div);
 }
-var checkbox = document.querySelector("input[type=checkbox]");
-checkbox.addEventListener('change', checkedAmount);
 
-function checkedAmount(){
-  debugger;
-  let num = uncheckedCountSpan;
-    if (this.checked) {
+
+function checkedAmount(event){
+  let num = parseInt(uncheckedCountSpan.innerText);
+    if (event.currentTarget.checked) {
       num++;
     }else{
       num--
     }
+    uncheckedCountSpan.innerText = num;
   }
