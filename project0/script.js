@@ -35,5 +35,16 @@ function newTodo() {
 
   ulElement.innerText = text;
   list.appendChild(div);
-
 }
+var checkbox = document.querySelector("input[type=checkbox]");
+checkbox.addEventListener('change', checkedAmount);
+
+function checkedAmount(){
+  debugger;
+  let num = uncheckedCountSpan;
+    if (this.checked) {
+      num++;
+    }else{
+      num--
+    }
+  }
