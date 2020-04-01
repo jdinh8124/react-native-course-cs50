@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextInput, Button, Text, View } from 'react-native';
+import { StyleSheet, Platform, TextInput, Button, Text, View } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -11,18 +11,19 @@ export default class App extends React.Component {
   }
 
   runTime = () => {
-    if (start) {
 
-    }
   }
 
   valueStartChange = () => {
 
   }
 
+
   render() {
     return (
       <View>
+        <View style={[styles.statusBarBackground]}>
+        </View>
         <Text style={{ textAlign: 'center', }}>Work Timer</Text>
         <View style={styles.container}>
           <Text>0:00</Text>
@@ -31,16 +32,19 @@ export default class App extends React.Component {
           <Button title="Start" />
           <Button title="Reset" onPress={this.valueStartChange} />
         </View>
-        <TextInput
-          style={{ height: 20, borderColor: 'gray', borderWidth: 1 }} value={this.value}
-        />
-        <TextInput
-          style={{ height: 20, borderColor: 'gray', borderWidth: 1 }}
-        />
+        <View style={{ flex: 1, alignItems: 'center' }} title="20" >
+          <TextInput
+            style={{ height: 20, borderColor: 'gray', borderWidth: 1, width: 250 }} value={this.value}
+          />
+          <TextInput
+            style={{ height: 20, borderColor: 'gray', borderWidth: 1, width: 250 }}
+          />
+        </View>
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -50,4 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontSize: "20px",
   },
+  statusBarBackground: {
+    height: (Platform.OS === 'ios') ? 280 : 0,
+    backgroundColor: "white",
+  }
 });
